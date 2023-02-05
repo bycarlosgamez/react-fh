@@ -1,7 +1,9 @@
 const App = () => {
-    return (
-        <h1>Hola Mundo!!!</h1>
-    )
-}
+  return (
+    <div className='container'>
+      <h1>Hola Mundo!!!</h1>
+    </div>
+  );
+};
 
-export default App
+export default App;
