@@ -6,3 +6,11 @@ body {
   font-size: 1.3rem;
   padding: 70px;
 }
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+}
