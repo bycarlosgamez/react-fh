@@ -8,20 +8,27 @@ const Counter = ({ value }) => {
     setNumber((prevNum) => prevNum + 1);
   }
 
-  function substract() {
+  function handleSubtract() {
     setNumber((prevNum) => prevNum - 1);
+  }
+
+  function handleReset() {
+    setNumber((prevNum) => (prevNum = value));
   }
 
   return (
     <>
       <h1>Counter App</h1>
       <div className='counter'>
-        <button className='button' onClick={substract}>
+        <button className='button' onClick={handleSubtract}>
           -
         </button>
         <h2> {number} </h2>
         <button className='button' onClick={handleAdd}>
           +
+        </button>
+        <button className='button' onClick={handleReset}>
+          Reset
         </button>
       </div>
     </>
