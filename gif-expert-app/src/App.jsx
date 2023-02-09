@@ -4,9 +4,9 @@ import AddCategory from './components/AddCategory';
 function App() {
   const [categories, setCategories] = useState([]);
 
-  const onAddCategory = () => {
+  const handleAddCategory = (newCategory) => {
     setCategories((prevCategories) => {
-      return [...prevCategories, 'Hollow Knight'];
+      return [newCategory, ...prevCategories];
     });
   };
 
@@ -14,7 +14,7 @@ function App() {
     <>
       <h1>GifExpertApp</h1>
 
-      <AddCategory setCategories={setCategories} />
+      <AddCategory onAddCategory={handleAddCategory} />
 
       <ol>
         {categories.map((category) => (
