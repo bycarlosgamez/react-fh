@@ -2,7 +2,7 @@ import { useState } from 'react';
 import AddCategory from './components/AddCategory';
 
 function App() {
-  const [categories, setCategories] = useState(['Hades', 'Zelda']);
+  const [categories, setCategories] = useState([]);
 
   const onAddCategory = () => {
     setCategories((prevCategories) => {
@@ -14,9 +14,7 @@ function App() {
     <>
       <h1>GifExpertApp</h1>
 
-      <AddCategory />
-
-      <button onClick={onAddCategory}>Add</button>
+      <AddCategory setCategories={setCategories} />
 
       <ol>
         {categories.map((category) => (
