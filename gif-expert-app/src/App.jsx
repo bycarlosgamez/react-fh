@@ -5,6 +5,8 @@ function App() {
   const [categories, setCategories] = useState([]);
 
   const handleAddCategory = (newCategory) => {
+    if (categories.includes(newCategory)) return;
+
     setCategories((prevCategories) => {
       return [newCategory, ...prevCategories];
     });
