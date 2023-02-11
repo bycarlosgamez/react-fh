@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { GifCard } from './GifCard';
 import getGifs from '../helper/getGifs';
 
 const GifGrid = ({ category }) => {
@@ -10,7 +11,7 @@ const GifGrid = ({ category }) => {
   };
 
   const image = images.map((img) => {
-    return <li key={img.id}>{img.title}</li>;
+    return <GifCard key={img.id} title={img.title} url={img.url} />;
   });
 
   useEffect(() => {
@@ -20,7 +21,7 @@ const GifGrid = ({ category }) => {
   return (
     <>
       <h3>{category.toUpperCase()}</h3>
-      <ul>{image}</ul>
+      <div className='card-grid'>{image}</div>
     </>
   );
 };
