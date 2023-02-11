@@ -6,6 +6,7 @@ const GifGrid = ({ category }) => {
   return (
     <>
       <h3>{category.toUpperCase()}</h3>
+      {isLoading && <h2>Loading...</h2>}
       <div className='card-grid'>{images}</div>
     </>
   );
