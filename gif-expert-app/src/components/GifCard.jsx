@@ -1,4 +1,4 @@
-export const GifCard = ({ title, url }) => {
+const GifCard = ({ title, url }) => {
   return (
     <div className='card'>
       <img src={url} alt={title} />
@@ -6,3 +6,5 @@ export const GifCard = ({ title, url }) => {
     </div>
   );
 };
+
+export default GifCard;
