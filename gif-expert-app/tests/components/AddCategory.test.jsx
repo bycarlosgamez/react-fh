@@ -6,10 +6,24 @@ describe('<AddCategory /> tests', () => {
     render(<AddCategory onAddCategory={() => {}} />);
     const input = screen.getByRole('textbox');
 
-    fireEvent.input(input, { target: { value: 'hades' } });
+    fireEvent.input(input, { target: { value: 'test' } });
 
-    expect(input.value).toBe('hades');
+    expect(input.value).toBe('test');
 
     // screen.debug();
+  });
+
+  test('should call onAddCategory if input has a value', () => {
+    const inputValue = 'test';
+
+    render(<AddCategory onAddCategory={() => {}} />);
+
+    const input = screen.getByRole('textbox');
+    const form = screen.getByRole('form');
+
+    fireEvent.input(input, { target: { value: inputValue } });
+    fireEvent.submit(form);
+
+    expect(input.value).toBe('');
   });
 });
