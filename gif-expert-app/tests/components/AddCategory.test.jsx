@@ -15,8 +15,9 @@ describe('<AddCategory /> tests', () => {
 
   test('should call onAddCategory if input has a value', () => {
     const inputValue = 'test';
+    const onAddCategory = jest.fn();
 
-    render(<AddCategory onAddCategory={() => {}} />);
+    render(<AddCategory onAddCategory={onAddCategory} />);
 
     const input = screen.getByRole('textbox');
     const form = screen.getByRole('form');
@@ -25,5 +26,20 @@ describe('<AddCategory /> tests', () => {
     fireEvent.submit(form);
 
     expect(input.value).toBe('');
+    expect(onAddCategory).toHaveBeenCalled();
+    expect(onAddCategory).toHaveBeenCalledTimes(1);
+    expect(onAddCategory).toHaveBeenCalledWith(inputValue);
+  });
+
+  test('should not call onAddCategory whith empty value', () => {
+    const onAddCategory = jest.fn();
+
+    render(<AddCategory onAddCategory={onAddCategory} />);
+
+    const form = screen.getByRole('form');
+
+    fireEvent.submit(form);
+
+    expect(onAddCategory).not.toHaveBeenCalled();
   });
 });
